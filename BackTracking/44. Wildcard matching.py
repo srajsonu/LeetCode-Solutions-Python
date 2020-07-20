@@ -10,7 +10,7 @@ class Solution:
             ans = 0
 
         elif i == 0:
-            if B[j] == '*':
+            if B[j-1] == '*':
                 ans = self.dp(A,B,i,j-1,aux)
 
         elif A[i-1] == B[j-1] or B[j-1] == '?':
