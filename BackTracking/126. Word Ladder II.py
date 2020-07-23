@@ -1,5 +1,5 @@
-class Solution:
-    def Solve(self,A,B,C):
+class Solution: #Doubt in questions
+    def Solve(self,beg, end, word):
         return
 
 if __name__ == '__main__':
