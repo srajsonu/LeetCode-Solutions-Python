@@ -1,5 +1,5 @@
 class Solution:
-    def dp(self, s, dic, dp):
+    def dp(self, s, dic, dp):   #Top-Down
         if s == "":
             return True
 
@@ -7,7 +7,7 @@ class Solution:
             return True
 
         if s in dp:
-            return True
+            return dp[s]
 
         for i in range(1,len(s)+1):
             if s[:i] in dic and self.dp(s[i:],dic,dp):
@@ -22,7 +22,7 @@ class Solution:
         dp = {}
         return self.dp(s, dic,dp)
 
-    def wordBreak(self, s, dic):
+    def wordBreak(self, s, dic):   #Bottom-Up
         n = len(s)
         dp = [False for _ in range(n + 1)]
         dp[0] = True
