@@ -2,7 +2,7 @@ class Solution:
     def backtrack(self,A,index,aux):
         if index == len(A):
             self.ans.append(list(A))
-            print(aux)
+            #print(aux)
             return
 
         for i in range(index, len(A)):
