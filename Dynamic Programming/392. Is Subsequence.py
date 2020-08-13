@@ -4,10 +4,10 @@ class Solution:
         if dp[i][j]:
             return dp[i][j]
 
-        if i == 0:
+        if i == -1:
             return True
 
-        if j == 0 and i != 0:
+        if j == -1 and i != -1:
             return False
 
         if A[i] == B[j]:
@@ -21,8 +21,7 @@ class Solution:
 
     def Solve(self,A,B):
         if len(A) == 0: return True
-        A = '_'+A
-        B = '_'+B
+        if len(B) == 0: return False
         m = len(A)
         n = len(B)
         dp = [[0]*n for _ in range(m)]

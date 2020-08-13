@@ -7,7 +7,7 @@ class Solution:
             return dp[i][j]
 
         elif A[i][j] == 1:
-            ans = min(self.dp(A,i-1,j,dp), self.dp(A,i-1,j-1,dp), self.dp(A,i,j-1,dp)) + 1
+            ans = min(self.dp(A, i - 1, j, dp), self.dp(A, i - 1, j - 1, dp), self.dp(A, i, j - 1, dp)) + 1
             dp[i][j] = ans
             return ans
         else:
@@ -16,12 +16,12 @@ class Solution:
     def Solve(self, A):
         m = len(A)
         n = len(A[0])
-        dp = [[0]*n for _ in range(m)]
+        dp = [[0] * n for _ in range(m)]
         ans = 0
         for i in range(m):
             for j in range(n):
                 if A[i][j] == 1:
-                    ans = max(ans, self.dp(A,i,j,dp))
+                    ans = max(ans, self.dp(A, i, j, dp))
         return ans ** 2
 
     def maximalSquare(self, matrix):
@@ -33,7 +33,7 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if matrix[i][j] == 1:
-                    dp[i][j] = 1 + min(dp[i - 1][j - 1], dp[i][j - 1], dp[i-1][j])
+                    dp[i][j] = 1 + min(dp[i - 1][j - 1], dp[i][j - 1], dp[i - 1][j])
                     ans = max(ans, dp[i][j])
 
         return ans ** 2
@@ -45,7 +45,7 @@ if __name__ == '__main__':
          [1, 1, 1, 1, 1],
          [1, 0, 0, 1, 0]]
 
-    C = [[0,1],[1,0]]
+    C = [[0, 1], [1, 0]]
 
     B = Solution()
     print(B.Solve(C))

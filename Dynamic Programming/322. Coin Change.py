@@ -9,8 +9,8 @@ class Solution:
         min_ = float('inf')
         for coin in coins:
             ans = self.dp(coins, rem-coin, dp)
-            if ans >= 0 and ans < min_:
-                min_ = 1 + ans
+            if ans >= 0:
+                min_ = min(1 + ans, min_)
 
         dp[rem] = min_
         return min_

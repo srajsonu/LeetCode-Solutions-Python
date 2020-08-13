@@ -35,8 +35,8 @@ class Solution:
 
 
 if __name__ == '__main__':
-    A = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab"
-    B = ["a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"]
+    A = "myinterviewtrainer"
+    B = ["trainer", "my", "interview"]
 
     s = "leetcode"
     wordDict = ["leet", "code"]
