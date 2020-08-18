@@ -48,4 +48,3 @@ if __name__ == '__main__':
     C = ["hot", "dot", "dog", "lot", "log", "cog"]
     D = Solution()
     print(D.Solve(A, B, C))
-

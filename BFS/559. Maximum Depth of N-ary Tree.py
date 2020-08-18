@@ -5,6 +5,17 @@ class Node:
         self.child = child
 
 class Solution:
+    def dfs(self, root):
+        if not root:
+            return []
+        ans = []
+        ans.append(root.val)
+
+        for child in root.children:
+            ans += self.dfs(child)
+
+        return ans
+
     def Solve(self, node):
         q = deque()
         q.append(node)

@@ -1,33 +1,42 @@
 from collections import deque
 class Solution:
-    def Solve(self,A,B):
-        dic = set()
-        for i in A:
-            dic.add(i)
+    def combinations(self, start):
+        ans = []
+        states = [-1, 1]
 
-        vis = set()
+        for i,j in enumerate(start):
+            for state in states:
+                val = (int(j) + state) % 10
+                ans.append(start[:i] + str(val) + start[i+1:])
+
+        return ans
+
+
+    def Solve(self,A,B):
+        start = '0000'
         q = deque()
-        q.append(('0000', 0))
-        vis.add('0000')
+        A = set(A)
+        q.append((start, 0))
+        vis = set()
+        vis.add(start)
 
         while q:
-            string, level = q.popleft()
-            if string == B:
+            comb , level = q.popleft()
+
+            if comb == B:
                 return level
 
-            elif string in dic:
+            if comb in A:
                 continue
 
-            for i in range(4):
-                digit = int(string[i])
-                for move in [-1, 1]:
-                    new_digit = (digit + move) % 10
-                    new_string = string[:i] + str(new_digit) + string[i + 1:]
-                    if new_string not in vis:
-                        vis.add(new_string)
-                        q.append((new_string, level + 1))
+            for combination in self.combinations(comb):
+                if combination not in vis:
+                    vis.add(combination)
+                    q.append((combination, level+1))
 
         return -1
+
+
 
 if __name__ == '__main__':
     A = ["0201", "0101", "0102", "1212", "2002"]

@@ -1,8 +1,8 @@
 class Solution:
     def permute(self,A,indx,aux):
         if indx == len(A):
-            print(aux)
-            return
+            self.aux.append(aux)
+            return aux
 
         for i in range(indx, len(A)):
             A[i], A[indx] = A[indx], A[i]
@@ -10,9 +10,11 @@ class Solution:
             A[i], A[indx] = A[indx], A[i]
 
     def Solve(self,A):
-        return self.permute(A,0,[])
+        self.aux = []
+        self.permute(A,0,[])
+        return self.aux
 
 if __name__ == '__main__':
-    A = [1,2,3]
+    A = [2,3,3]
     B = Solution()
     print(B.Solve(A))
