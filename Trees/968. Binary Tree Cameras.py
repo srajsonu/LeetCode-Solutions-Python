@@ -1,14 +1,18 @@
 import enum
+
+
 class state(enum.Enum):
-    NO_CAMERA = 0,
+    NO_CAMERA = 0
     HAS_CAMERA = 2
     NOT_NEEDED = 1
+
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def dfs(self, root):
