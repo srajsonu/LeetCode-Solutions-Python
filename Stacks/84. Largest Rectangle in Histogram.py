@@ -14,5 +14,6 @@ class Solution:
                 w = i - stack[-1] - 1
                 ans = max(ans, h * w)
             stack.append(i)
+
         height.pop()
         return ans
