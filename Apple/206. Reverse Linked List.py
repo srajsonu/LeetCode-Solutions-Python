@@ -24,3 +24,8 @@ class Solution:
             curr = tmp
 
         return prev
+
+if __name__ == '__main__':
+    A = []
+    B = Solution()
+    print(B.solve(A))
