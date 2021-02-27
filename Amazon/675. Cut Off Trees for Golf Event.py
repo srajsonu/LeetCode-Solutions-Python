@@ -7,45 +7,54 @@ class Solution:
             return False
         return True
 
-    def cutOffTree(self, A):
-        m = len(A)
-        n = len(A[0])
-
-        print(A)
+    def bfs(self, A, sr, sc, tr, tc):
+        q = deque()
+        q.append((sr, sc, 0))
 
         row = [-1, 0, 1, 0]
         col = [0, -1, 0, 1]
-
-        q = deque()
-        for i in range(m):
-            for j in range(n):
-                if A[i][j] == 1:
-                    q.append((i, j, 0))
-
-        if not q:
-            A[0][0] = 1
-            q.append((0, 0, 1))
-
         vis = set()
-        k = 0
+
         while q:
             i, j, k = q.popleft()
             vis.add((i, j))
+            if i == tr and j == tc:
+                return k
+
             for r, c in zip(row, col):
                 nRow = i + r
                 nCol = j + c
 
-                if self.isValid(A, nRow, nCol) and (nRow, nCol) not in vis and A[i][j] < A[nRow][nCol]:
-                    A[nRow][nCol] = 1
+                if self.isValid(A, nRow, nCol) and (nRow, nCol) not in vis:
                     vis.add((nRow, nCol))
-                    q.append((nRow, nCol, k + 1))
+                    q.append((nRow, nCol, k+1))
+        return -1
+
+
+    def cutOffTree(self, A):
+        m = len(A)
+        n = len(A[0])
+        trees = []
+        sr = 0
+        sc = 0
 
         for i in range(m):
             for j in range(n):
                 if A[i][j] > 1:
-                    return -1
+                    trees.append((A[i][j],i, j))
 
-        return k
+        trees.sort()
+        total_cost = 0
+        for h, tr, tc in trees:
+            d = self.bfs(A, sr, sc, tr, tc)
+            if d < 0:
+                return -1
+
+            total_cost += d
+            sr = tr
+            sc = tc
+
+        return total_cost
 
 
 if __name__ == '__main__':
