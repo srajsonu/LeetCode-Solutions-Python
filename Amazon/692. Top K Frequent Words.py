@@ -1,0 +1,29 @@
+from heapq import *
+
+
+class Solution:
+    def topKFrequent(self, A, B):
+        freq = {}
+        for i in A:
+            if i not in freq:
+                freq[i] = 1
+            else:
+                freq[i] += 1
+
+        pq = []
+        for i in freq:
+            heappush(pq, (-freq[i], i))
+
+        ans = []
+        while B:
+            i, j = heappop(pq)
+            ans.append(j)
+            B -= 1
+
+        return ans
+
+if __name__ == '__main__':
+    A = ["i", "love", "leetcode", "i", "love", "coding"]
+    B = 2
+    C = Solution()
+    print(C.topKFrequent(A, B))
