@@ -24,7 +24,7 @@ class Solution:
             for j in range(i+1, len(ans)):
                 res = max(res, ans[i] + ans[j])
 
-        return res, ans
+        return res
 
 if __name__ == '__main__':
     A = [1,2,4,2,5,7,2,4,9,0]
