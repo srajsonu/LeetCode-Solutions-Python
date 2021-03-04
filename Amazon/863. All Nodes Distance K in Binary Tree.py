@@ -26,7 +26,6 @@ class Solution:
         vis = set()
         q = deque()
         q.append((target, 0))
-        # vis.add(target)
 
         ans = []
         while q:
